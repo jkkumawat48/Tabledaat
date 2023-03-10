@@ -1,0 +1,74 @@
+<div class="card">
+    <form [formGroup]="userForm">
+        <div class="mt-5 box">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Name</label>
+                    </div>
+                    <div class="form-row" style="margin-top:-10px">
+                        <div class="col">
+                            <input type="text" placeholder="Enter Your Name" [(ngModel)]="name" formControlName="name" name="name"
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row" style="margin-top:-10px">
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Email</label>
+                    </div>
+                    <div class="form-row" style="margin-top:-10px">
+                        <div class="col">
+                            <input type="email" placeholder="Enter Your Email" [(ngModel)]="email" formControlName="email" name="email"
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Password</label>
+                    </div>
+                    <div class="form-row" style="margin-top:-10px">
+                        <div class="col">
+                            <input type="password"  required minlength="4" placeholder="Enter Your Password" [(ngModel)]="password" formControlName="password"
+                                name="password" class="form-control"  />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-4">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" (click)="AddItem()" [ngClass]="{'btn-danger' : editMode}">{{editMode? 'UpdateUser':'Edit'}}</button>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-8 mt-4 mb-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listData; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td> 
+                    <td>{{item.password}}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="editItem(item,i)">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="removeItem(i)">Delete</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

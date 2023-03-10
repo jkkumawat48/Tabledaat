@@ -1,0 +1,58 @@
+<h1 class="text-center">Form-Data</h1>
+<div class="card">
+<form [formGroup]="dataForm">
+<div class="mt-3 box">
+<div class="form-group col-lg-4">
+<label>Name</label>
+<input type="'text" placeholder="Enter Your Name" formControlName="name" class="form-control"/>
+</div>
+<div class="form-group col-lg-4">
+    <label>Email</label>
+    <input type="email" placeholder="Enter Your Email" formControlName="email" class="form-control"/>
+    </div>
+    <div class="form-group col-lg-4">
+        <label>Date</label>
+        <input type="date" placeholder="Enter Your Date" formControlName="date" class="form-control"/>
+        </div>
+        <div class="form-group col-lg-4">
+            <label>Password</label>
+            <input type="password" placeholder="Enter Your Password" formControlName="password" class="form-control"/>
+            </div>
+            <div class="form-group col-lg-4">
+                <label>Mobile</label>
+                <input type="'text" placeholder="Enter Your Mobile" formControlName="mobile" class="form-control"/>
+                </div>
+                <button class="btn btn-primary" (click)="adduser()">AddData</button>
+</div>
+</form>
+<div>
+    <table class="table">
+<thead>
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Password</th>
+        <th>Mobile</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of useData ; let i=index">
+<td>{{i + 1}}</td>
+<td>{{item.name}}</td>
+<td>{{item.email}}</td>
+<td>{{item.date}}</td>
+<td>{{item.password}}</td>
+<td>{{item.mobile}}</td>
+<td><button class="btn btn-primary" (click)="edit(item,i)">Edit</button></td>
+<td><button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+
+    </tr>
+</tbody>
+    </table>
+</div>
+</div>
+

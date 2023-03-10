@@ -1,0 +1,39 @@
+<p>user works!</p>
+<router-outlet></router-outlet>
+<input type="text" name="name" [(ngModel)]="name">
+<input type="text" name="age" [(ngModel)]="age">
+<input type="text" name="gali" [(ngModel)]="gali">
+<button (click)="addUpdate()">Click Me</button>
+<!-- <input  [ (ngModle) ] = "value"/> -->
+<!-- {{name}} -->
+
+<!-- <h1>Heloo Angular</h1>
+<a routerLink="about/">About</a>
+<a routerLink="user">User</a>
+<a routerLink="home">Home</a> -->
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gali</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let data of myData; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.gali}}</td>
+                <td>
+                    <button (click)="delete(i)">Delete</button>
+                    <button (click)="edit(data, i)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

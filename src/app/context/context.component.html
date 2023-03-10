@@ -1,0 +1,38 @@
+<p>context works!</p>
+
+<div class="container-fluidcol-lg-4">
+    <h1 class="text-primary">Bootstrap Form</h1>
+    <form [formGroup]="newForm">
+        <div class="form-group col-lg-4">
+            <label>Name</label>
+            <input type="text" formControlName="name" placeholder="Enter Your Name" name='name' class="form-control" />
+        </div>
+        
+        <div class="form-group col-lg-4">
+            <label>Email</label>
+            <input type="email" email="true" autocomplete="off"  required formControlName="email" placeholder="Enter Your email" name="email" class="form-control "  />
+        </div>
+        <div class="form-group col-lg-4 ">
+            <label>Password</label>
+            <input type="text"  formControlName="password" placeholder="Enter Your Password" name="password" class="form-control "  />
+        </div>
+        <div class="form-group col-lg-4 ">
+            <select class="custom-select" formControlName="select" >
+                <option selected>I an Instersted in</option>
+                <option *ngFor="let topic of topics">{{topic}}</option>
+            </select>
+        </div>
+        <div class='mb-3'>
+            <label>Time Preference</label>
+            <div class="form-check col-lg-4 ">
+                <input class="form-check-input" type="radio" name="timePreference" value="evening">
+                <label class="form-check-label">Evening (5pm -8pm)</label>
+            </div>
+        </div>
+        <div class="form-check-mb-3">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">Send me promotional offers</label>
+        </div>
+        <button  [disabled]='newForm.invalid' class="btn btn-primary col-lg-4" (click)="Submit()">Submit</button>
+    </form>
+</div>

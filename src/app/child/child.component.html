@@ -1,0 +1,21 @@
+<h1>child works!</h1>
+<div>
+   <img [src]="imgUrl" alt="Image" >
+    
+</div>
+<div>
+    <button (click)="IncrementCount()">Increment</button>
+    <br />
+<p>Clicked {{ count }} times</p>
+</div>
+<div>
+    <button (click)="DicrementCount()">Dicrement</button>
+    <p>Clicked {{ count }} times</p>
+</div>
+<div>
+    <input type="text" [(ngModel)]="name">
+    <p>WellCome{{name}}</p>
+</div>
+
+{{message}}
+

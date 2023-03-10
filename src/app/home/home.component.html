@@ -1,0 +1,37 @@
+<p>home works!</p>
+
+<form [formGroup]="newForm">
+    <div> 
+    <input type="text" formControlName='name' placeholder="Enter Your Name" name="name"/>
+</div>
+    <br />
+    <input type="email" formControlName='email' placeholder="Enter Your Email" name="email"/>
+    <br />
+    <input type="password" formControlName='password' maxlength="5" placeholder="Enter Your Password" name="password"/>
+    <span></span>
+    <br />
+    <input type="date" formControlName='date'   placeholder="Enter Your Date" name="date"/>
+    <br />
+    <button [disabled]="newForm.invalid" (click)="submit()" class="btn btn-primary">Click</button>
+</form>
+
+
+<!-- <form [formGroup]="newform"> 
+<input type="text" id="name" class="form-control"
+      formControlName="name" required name="name">
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="name.errors?.['required']">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="name.errors?.['forbiddenName']">
+    Name cannot be Bob.
+  </div>
+</div>
+
+</form> -->

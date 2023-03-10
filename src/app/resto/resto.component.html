@@ -1,0 +1,70 @@
+<h1 class="text-center">Table</h1>
+<div class="card">
+<form [formGroup]="restoform">
+<div class="mt-5 box">
+<div class="form-group col-lg-4">
+<label>Name</label>
+<input type="text" formControlName="name" placeholder="Enter Name" name="name" class="form-control" required minlength="4" appForbiddenName="bob"/>
+<div class="text-danger" *ngIf="name?.invalid && (name?.dirty || name?.touched)" class= "alert">
+    <div class="btn-danger" *ngIf="name?.errors?.['required']">
+        Name is required.
+      </div> 
+      <div class="btn-danger" *ngIf="name.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+      <div class="btn-danger"  *ngIf="name.errors?.['forbiddenName']">
+        Name cannot be Bob.
+      </div>                  
+</div>
+</div>
+</div>
+<div class="mt-5 box">
+<div class="form-group col-lg-4">
+<label>Email</label>
+<input type="email" formControlName="email" placeholder="Enter Your Email" email="email" class="form-control" />
+<div *ngIf="(email.invalid && email.touched) || email.dirty">
+    <small *ngIf="email.errors?.required" class="text-danger"> email is required</small>
+    <!--question mark(?) is a safe navigation operator-->
+    <small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+  </div>
+</div>
+</div>
+<div class="mt-5 box">
+<div class="form-group col-lg-4">
+<label>Mobile</label>
+<input type="mobile" formControlName="mobile" placeholder="Enter Your Mobile Number" minlength="10" maxlength="10" Mobile="mobile" class="form-control">
+<div class="text-danger" *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched)">
+<div *ngIf="mobile?.errors?.['required']">
+Mobile is required
+</div>
+<div class="btn-danger" *ngIf="mobile.errors?.['minlength']">
+    Mobile must be at least 4 characters long.
+  </div>
+</div>
+</div>
+</div>
+</form>
+<button class="btn-primary"  [disabled]="restoform.invalid"  (click)="addItem()" [ngClass]="{'btn-danger' : editMode}">{{ editMode ? 'Update User': 'Add'  }}</button>
+<table class="table">
+<thead>
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of itemdata; let i = index">
+<td>{{i+1}}</td>
+<td>{{item.name}}</td>
+<td>{{item.email}}</td>
+<td>{{item.mobile}}</td>
+<td class="btn-primary" (click)="edit(item,i)">Edit</td>
+<td class="btn-danger" (click)="delete(i)">Delete</td>
+    </tr>
+</tbody>
+</table>
+</div>
